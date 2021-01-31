@@ -6,6 +6,9 @@
 	font-size: 100px;
 	text-align: center;
 	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px; 
+    background-blend-mode: lighten;
 }
 .doodler {
 	width: 31px;
@@ -20,7 +23,7 @@
 	background-image: url('platform.png');
 	position: absolute;
 }
-#myBtn {
+button {
 	width: 400px;
 	height: 30px;
 	background-color: green;
@@ -28,4 +31,14 @@
 	font-size: 20px;
 	text-align: center;
 	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px; 
+	text-shadow: 2px 2px #000000;
+}
+button:disabled,
+button[disabled]{
+  text-shadow: 2px 2px white;
+  border: 1px solid white;
+  background-color: white ;
+  color: white;
 }
