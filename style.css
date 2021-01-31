@@ -1,0 +1,31 @@
+.grid {
+	width: 400px;
+	height: 600px;
+	background-image: url('background.png');
+	position: relative;
+	font-size: 100px;
+	text-align: center;
+	color: white;
+}
+.doodler {
+	width: 31px;
+	height: 85px;
+	background-image: url('elf.png');
+	position: absolute;
+}
+
+.platform {
+	width: 85px;
+	height: 15px;
+	background-image: url('platform.png');
+	position: absolute;
+}
+#myBtn {
+	width: 400px;
+	height: 30px;
+	background-color: green;
+	position: absolute;
+	font-size: 20px;
+	text-align: center;
+	color: white;
+}
