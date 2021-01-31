@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const doodler = document.createElement('div');
 	let isGameOver = false;
 	let score = 0;
-	let speed = 3;
-	let gravity = 0.9;
 	let doodlerLeftSpace = 50; 
 	let startPoint = 150;
 	let doodlerBottomSpace = startPoint;
@@ -59,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					firstPlatform.classList.remove('platform');
 					platforms.shift();
 					score++;
-					console.log(platforms);
 					let newPlatform = new Platform(600);
 					platforms.push(newPlatform);		
 				}
@@ -79,12 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		clearInterval(downTimerId);
 		isJumping = true;
 		upTimerId = setInterval(function () {
-			console.log(startPoint);
-			console.log('1', doodlerBottomSpace);
 			doodlerBottomSpace += 20;
 			doodler.style.bottom =  doodlerBottomSpace + 'px';
-			console.log('2', doodlerBottomSpace);
-			console.log('s', startPoint);
 			if (doodlerBottomSpace > startPoint + 200){
 				fall();
 				isJumping = false;
@@ -110,10 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					(doodlerLeftSpace <= (platform.left + 85)) &&
 					(!isJumping)
 				){
-					console.log('landed');
 					startPoint = doodlerBottomSpace;
 					jump();
-					console.log('start', startPoint);
 					isJumping = true;
 				}
 			})
@@ -203,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		isGameOver = true;
 		console.log('game over');
 		while (grid.firstChild){
-			console.log('remove');
 			grid.removeChild(grid.firstChild);
 		}
 		grid.innerHTML = score;
@@ -212,10 +202,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		clearInterval(leftTimerId);
 		clearInterval(rightTimerId);
 	}
-	 // attach to button
+
 	 grid.innerHTML = "Hit Start!";
 	 let button = document.getElementById("myBtn");
 	 button.onclick = start;
-}) // alternative to putting script inside html
+}) 
 
 
