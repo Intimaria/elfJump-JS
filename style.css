@@ -2,6 +2,7 @@
 	width: 400px;
 	height: 600px;
 	background-image: url('background.png');
+    opacity: 0.9;
 	position: relative;
 	font-size: 100px;
 	text-align: center;
@@ -37,8 +38,5 @@ button {
 }
 button:disabled,
 button[disabled]{
-  text-shadow: 2px 2px white;
-  border: 1px solid white;
-  background-color: white ;
-  color: white;
+    opacity: 0.0;
 }
