@@ -174,8 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	
 	function start() {
-		firstTime = false;
 		grid.innerHTML = "";
+		button.disabled = true;
 		if (!isGameOver) {
 			createPlatforms();
 		    createDoodler(); 
@@ -192,13 +192,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			clearInterval(downTimerId); 
 			createPlatforms();
 		    createDoodler(); 
-			setInterval(movePlatforms, 50);
+			setInterval(movePlatforms, 30);
 			jump();
 			document.addEventListener('keyup', control);
 		}
 		
 	 }
 	function gameOver() {
+		button.disabled = false;
 		isGameOver = true;
 		console.log('game over');
 		while (grid.firstChild){
@@ -212,8 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		clearInterval(rightTimerId);
 	}
 	 // attach to button
-	 grid.innerHTML = "hit Start";
-	 document.getElementById("myBtn").onclick = start;
+	 grid.innerHTML = "Hit Start!";
+	 let button = document.getElementById("myBtn");
+	 button.onclick = start;
 }) // alternative to putting script inside html
 
 
