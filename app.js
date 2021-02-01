@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const doodler = document.createElement('div');
 	let isGameOver = false;
 	let score = 0;
-	let doodlerLeftSpace = 50; 
+	let doodlerLeftSpace = 31; 
 	let startPoint = 150;
 	let doodlerBottomSpace = startPoint;
 	let platformCount = 5;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	class Platform {
 		constructor(newPlatBottom){
 			this.bottom = newPlatBottom;
-			this.left = Math.random() * 315;
+			this.left = Math.random() * 320;
 			this.visual = document.createElement('div');	
 					
 			const visual = this.visual;
@@ -76,13 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		clearInterval(downTimerId);
 		isJumping = true;
 		upTimerId = setInterval(function () {
-			doodlerBottomSpace += 20;
+			doodlerBottomSpace += 14;
 			doodler.style.bottom =  doodlerBottomSpace + 'px';
 			if (doodlerBottomSpace > startPoint + 200){
 				fall();
 				isJumping = false;
 			}
-		}, 40)
+		}, 20)
 		
 	}
 	
@@ -98,9 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			platforms.forEach(platform => {
 				if (
 					(doodlerBottomSpace >= platform.bottom) &&
-					(doodlerBottomSpace <= platform.bottom + 15) &&
-					((doodlerLeftSpace + 60) >= platform.left) &&
-					(doodlerLeftSpace <= (platform.left + 85)) &&
+					(doodlerBottomSpace <= platform.bottom + 10) &&
+					((doodlerLeftSpace + 31) >= platform.left) &&
+					(doodlerLeftSpace <= (platform.left + 80)) &&
 					(!isJumping)
 				){
 					startPoint = doodlerBottomSpace;
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					isJumping = true;
 				}
 			})
-			}, 40)
+			}, 20)
 	}
 	
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				doodler.style.left = doodlerLeftSpace + 'px';	
 			} 
 			else moveRight();	
-		}, 40);
+		}, 20);
 	}
 	
 	function moveRight() {
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				doodler.style.left = doodlerLeftSpace + 'px';
 			}
 			else moveLeft();
-		}, 40)	
+		}, 20)	
 	}
 	
 	function moveStraight() {
@@ -207,5 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	 let button = document.getElementById("myBtn");
 	 button.onclick = start;
 }) 
+
 
 
